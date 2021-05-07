@@ -23,14 +23,6 @@
 
                 <div class="h2 mb-24">Criando Novo Post</div>
 
-                <!-- <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-                    <mat-form-field appearance="outline" fxFlex="100">
-                        <mat-label>Company (disabled)</mat-label>
-                        <input matInput formControlName="company">
-                        <mat-icon matSuffix class="disabled-text">domain</mat-icon>
-                    </mat-form-field>
-                </div> -->
-
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                     <mat-form-field appearance="outline" fxFlex="50" class="pr-4">
                         <mat-label>Título</mat-label>
@@ -43,6 +35,9 @@
                         <mat-form-field appearance="outline" fxFlex="100">
                             <mat-label>Usuário</mat-label>
                             <mat-select formControlName="userId" required>
+                                <mat-option [value]="">
+                                    Selecione
+                                </mat-option>
                                 <mat-option [value]="1">
                                     Robson
                                 </mat-option>
@@ -65,7 +60,7 @@
                 <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
                     <mat-form-field appearance="outline" fxFlex="100">
                         <mat-label>Conteúdo</mat-label>
-                        <textarea matInput formControlName="body" required>
+                        <textarea matInput formControlName="body" rows="4" required>
                             sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                         </textarea>
                         <mat-error>Preencha o campo conteúdo!</mat-error>
