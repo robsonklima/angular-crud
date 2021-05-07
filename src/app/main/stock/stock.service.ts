@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient } from "@angular/common/http";
 import { Observable, EMPTY } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { map, catchError, timeout } from "rxjs/operators";
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class StockService {
 
   read(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.baseUrl).pipe(
+      timeout(30000),
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
