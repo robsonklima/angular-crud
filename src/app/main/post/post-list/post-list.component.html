@@ -1,0 +1,74 @@
+<div class="page-layout simple fullwidth" fxLayout="column">
+    <div class="header accent p-24 h-160" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+        fxLayoutAlign.gt-sm="space-between center">
+
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">book</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Posts</span>
+            </div>
+            <div class="h1 mt-16">Lista</div>
+        </div>
+
+        <button mat-raised-button routerLink="/post-create" class="add-product-button fuse-white mt-24 mt-md-0">
+            <span>NOVO</span>
+        </button>
+    </div>
+</div>
+
+<div class="page-layout blank p-24" fusePerfectScrollbar>
+    <mat-spinner *ngIf="!posts?.length" diameter="40"></mat-spinner>
+
+    <div [hidden]="!posts?.length">
+        <mat-form-field>
+            <mat-label>{{ 'POST.FILTER' | translate }}</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. {{ 'POST.NAME' | translate }}" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z1">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                    <th class="w-75" mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'POST.POST_TITLE' | translate }}</th>
+                    <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="body">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'POST.POST_BODY' | translate }}</th>
+                    <td mat-cell *matCellDef="let row"> {{row.body}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-15">{{ 'POST.ACTIONS' | translate }}</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button routerLink="/post-detail/{{row.id}}" mat-icon-button aria-label="Example icon button">
+                            <mat-icon>open_in_new</mat-icon>
+                        </button>
+
+                        <button routerLink="/post-edit/{{row.id}}" mat-icon-button aria-label="Example icon button">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                        <button routerLink="/post-delete/{{row.id}}" mat-icon-button aria-label="Example icon button">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">{{ 'POST.NO_DATA' | translate }} "{{ input.value }}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

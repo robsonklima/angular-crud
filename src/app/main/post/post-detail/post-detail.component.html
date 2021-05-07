@@ -1,0 +1,25 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+    <div class="header accent p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button class="mr-0 mr-sm-16" routerLink="/post">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">book</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Posts</span>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Post</span>
+            </div>
+            <div class="h1 mt-16">Detalhes</div>
+        </div>
+    </div>
+
+    <div class="content p-24">
+        <div class="mat-title">{{ post.id }}. {{ post.title }}</div>
+        <p>
+            {{ post.body }}
+        </p>
+    </div>
+</div>
