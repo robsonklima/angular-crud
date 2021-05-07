@@ -20,10 +20,11 @@ import { LayoutModule } from 'app/layout/layout.module';
 
 import { HomeModule } from './main/home/home.module';
 import { PostModule } from './main/post/post.module';
+import { StockModule } from './main/stock/stock.module';
 
 const appRoutes: Routes = [
     {
-        path      : '**',
+        path: '**',
         redirectTo: '/home'
     }
 ];
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent
     ],
-    imports     : [
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         HomeModule,
-        PostModule
+        PostModule,
+        StockModule
     ],
     bootstrap   : [
         AppComponent

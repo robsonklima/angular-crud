@@ -8,6 +8,9 @@ export const locale = {
             },
             'POST':{
                 'TITLE': 'Posts'
+            },
+            'STOCK':{
+                'TITLE': 'Ações'
             }
         }
     }
