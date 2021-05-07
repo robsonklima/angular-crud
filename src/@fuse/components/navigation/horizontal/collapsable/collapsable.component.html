@@ -51,9 +51,7 @@
     </ng-template>
 
     <div class="children" [ngClass]="{'open': isOpen}">
-
         <div class="{{fuseConfig.layout.navbar.primaryBackground}}">
-
             <ng-container *ngFor="let item of item.children">
                 <fuse-nav-horizontal-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-horizontal-item>
                 <fuse-nav-horizontal-collapsable *ngIf="item.type=='collapsable'"
@@ -61,9 +59,6 @@
                 <fuse-nav-horizontal-collapsable *ngIf="item.type=='group'"
                                                  [item]="item"></fuse-nav-horizontal-collapsable>
             </ng-container>
-
         </div>
-
     </div>
-
 </ng-container>
