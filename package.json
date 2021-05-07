@@ -5,16 +5,21 @@
     "scripts": {
         "ng": "ng",
         "postinstall": "ngcc",
-        "start": "ng serve",
+        "start": "node server.js",
         "start:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng serve --open",
         "build": "ng build",
         "build:prod": "ng build --prod",
+        "heroku-postbuild": "ng build --prod",
         "build:prod:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "bundle-report": "webpack-bundle-analyzer dist/stats.json"
     },
+    "engines": {
+        "node": "12.19.0",
+        "npm": "6.14.8"
+     },
     "private": true,
     "dependencies": {
         "@agm/core": "1.1.0",
