@@ -5,7 +5,7 @@
     "scripts": {
         "ng": "ng",
         "postinstall": "ngcc",
-        "start": "ng serve --open",
+        "start": "ng serve",
         "start:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng serve --open",
         "build": "ng build",
         "build:prod": "ng build --prod",
