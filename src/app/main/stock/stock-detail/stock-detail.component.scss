@@ -1,3 +1,53 @@
 mat-spinner {
     margin: 0 auto; margin-top: 24vh;
 }
+
+.invoice-table {
+    margin-top: 24px;
+    font-size: 15px;
+
+    thead {
+        tr {
+            th {
+                color: rgba(0, 0, 0, 0.87);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+                &:first-child {
+                    padding-left: 8px;
+                }
+
+                &:last-child {
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                color: rgba(0, 0, 0, 0.87);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+                &:first-child {
+                    padding-left: 8px;
+                }
+
+                &:last-child {
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .detail {
+        margin-top: 8px;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.54);
+        max-width: 360px;
+    }
+}

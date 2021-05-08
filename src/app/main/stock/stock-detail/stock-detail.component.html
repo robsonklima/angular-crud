@@ -1,6 +1,6 @@
 <div id="forms" class="page-layout simple fullwidth" fxLayout="column">
     <div class="header accent p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
-        <button mat-icon-button class="mr-0 mr-sm-16" routerLink="/stock">
+        <button mat-icon-button class="mr-0 mr-sm-16" routerLink="/post">
             <mat-icon>arrow_back</mat-icon>
         </button>
 
@@ -8,34 +8,32 @@
             <div fxLayout="row" fxLayoutAlign="start center">
                 <mat-icon class="secondary-text s-18">book</mat-icon>
                 <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
-                <span class="secondary-text">Ações</span>
+                <span class="secondary-text">Stocks</span>
                 <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
-                <span class="secondary-text">Ação</span>
+                <span class="secondary-text">Stock</span>
             </div>
             <div class="h1 mt-16">Detalhes</div>
         </div>
     </div>
+    
+    <mat-spinner *ngIf="!stock" diameter="40"></mat-spinner>
 
-    <div class="content p-24">
-        <mat-spinner *ngIf="!stock" diameter="40"></mat-spinner>
+    <div class="content p-24" *ngIf="stock">
+        <div class="mat-title">{{ stock?.name }}. {{ stock?.info?.shortName }}</div>
 
-        <div *ngIf="stock">
-            <div class="mat-title">{{ stock?.name }}. {{ stock?.info?.shortName }}</div>
-            <p>
-                Nome: {{ stock?.info.longName }}
-            </p>
-            <p>
-                Preço: R$ {{ stock?.info.regularMarketPrice }}
-            </p>
-            <p>
-                Fechamento Ontem: R$ {{ stock?.info.regularMarketPreviousClose }}
-            </p>
-            <p>
-                Setor: {{ stock?.info.sector }}
-            </p>
-            <p>
-                Site: {{ stock?.info.website }}
-            </p>
-        </div>
+        <table class="simple invoice-table">
+            <tbody>
+                <tr *ngFor="let item of stock?.info | keyvalue">
+                    <td>
+                        <div class="title">
+                            {{item.key}}
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        {{item.value}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
