@@ -18,6 +18,9 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 
+import { LoginModule } from './main/authentication/login/login.module';
+import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
+import { RegisterModule } from './main/authentication/register/register.module';
 import { HomeModule } from './main/home/home.module';
 import { PostModule } from './main/post/post.module';
 import { StockModule } from './main/stock/stock.module';
@@ -25,7 +28,7 @@ import { StockModule } from './main/stock/stock.module';
 const appRoutes: Routes = [
     {
         path: '**',
-        redirectTo: '/home'
+        redirectTo: 'auth/login'
     }
 ];
 
@@ -57,6 +60,9 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
+        LoginModule,
+        RegisterModule,
+        ForgotPasswordModule,
         HomeModule,
         PostModule,
         StockModule
