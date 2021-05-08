@@ -11,6 +11,7 @@ import { map, catchError, timeout } from "rxjs/operators";
 })
 export class StockService {
   baseUrl = "https://bovespa-api.herokuapp.com/stocks";
+  //baseUrl = 'http://127.0.0.1:5000/stocks'
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 

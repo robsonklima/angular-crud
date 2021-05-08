@@ -19,8 +19,8 @@ import { StockService } from './../stock.service';
 export class StockListComponent {
   stocks: Stock[] = [];
 
-  displayedColumns: string[] = ['logo_url', 'name', 'shortName', 'regularMarketPrice', 
-    'regularMarketPreviousClose', 'actions'];
+  displayedColumns: string[] = ['logo_url', 'name', 'shortName', 
+    'regularMarketPreviousClose', 'regularMarketPrice', 'income', 'actions'];
   dataSource: MatTableDataSource<Stock>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,9 +34,9 @@ export class StockListComponent {
   }
 
   ngAfterViewInit() {
-    setInterval(() => { 
-      this.loadStocks();
-    }, 60000);
+    // setInterval(() => { 
+    //   this.loadStocks();
+    // }, 60000);
 
     this.loadStocks();
   }
@@ -45,7 +45,7 @@ export class StockListComponent {
     this._stockService.read().subscribe((stocks: Stock[]) => {
       this.stocks = stocks;
       console.log(stocks);
-
+      
       this.dataSource = new MatTableDataSource(this.stocks);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

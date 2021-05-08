@@ -16,8 +16,11 @@ mat-spinner {
 }
 
 img {
-    width: 25px;
-    height: 25px;
+    display: block;
+    max-height:25px;
+    width: auto;
+    height: auto;
+    //border-radius: 50%;
 }
 
 .green {
@@ -30,4 +33,9 @@ img {
     color: red !important;
     background-color: white !important;
     font-weight: 300;
+}
+
+.table-icon {
+    vertical-align: middle;
+    font-size: 16.8px;
 }

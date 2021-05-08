@@ -22,9 +22,6 @@ export class StockDetailComponent implements OnInit {
 
     this._stockService.readByIName(name).subscribe((stock: Stock) => {
       this.stock = stock;
-
-      console.log(stock);
-      
     }, error => {})
   }
 }
