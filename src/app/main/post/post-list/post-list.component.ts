@@ -3,10 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
-import { locale as english } from './../i18n/en';
-import { locale as portuguese } from './../i18n/pt';
-
 import { Post } from '../post.model';
 import { PostService } from './../post.service';
 
@@ -26,11 +22,8 @@ export class PostListComponent {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private _fuseTranslationLoaderService: FuseTranslationLoaderService,
     private _postService: PostService,
-  ) {
-    this._fuseTranslationLoaderService.loadTranslations(english, portuguese);
-  }
+  ) {}
 
   ngAfterViewInit() {
     this._postService.read().subscribe((posts: Post[]) => {
